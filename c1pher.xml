@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+
+<repositories version="1.0">
+	<repo priority="50" quality="experimental" status="unofficial">
+		<name>c1pher</name>
+		<description>c1pher's new repo </description>
+		<homepage>https://github.com/c1pherx/gentoo-c1pher</homepage>
+		<owner>
+			<email>c1pher@c1pher.net</email>
+		</owner>
+		<source type="git">https://github.com/c1pherx/gentoo-c1pher.git</source>
+	</repo>
+</repositories>
