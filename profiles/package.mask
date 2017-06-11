@@ -1,5 +1,1 @@
->=dev-libs/botan-1.9
-sys-kernel/c1pher-sources
-net-nntp/sabnzbd
-dev-python/yenc
 =sys-kernel/genkernel-next-9999
