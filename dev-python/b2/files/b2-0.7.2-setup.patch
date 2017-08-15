@@ -1,5 +1,5 @@
---- setup.py	2017-03-23 17:38:56.000000000 -0400
-+++ setup.py.fix	2017-08-15 14:05:41.884195001 -0400
+--- b2/setup.py	2017-03-23 17:38:56.000000000 -0400
++++ b2/setup.py.fix	2017-08-15 14:05:41.884195001 -0400
 @@ -101,7 +101,7 @@
  
      # You can just specify the packages manually here if your project is
