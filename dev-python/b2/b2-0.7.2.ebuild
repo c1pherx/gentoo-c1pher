@@ -23,3 +23,10 @@ RDEPEND="${DEPEND}
 	dev-python/yapf"
 
 RESTRICT="test"
+
+python_prepare_all() {
+	local PATCHES=(
+		"${FILESDIR}/${P}-setup-tests.patch"
+	)
+	distutils-r1_python_prepare_all
+}
