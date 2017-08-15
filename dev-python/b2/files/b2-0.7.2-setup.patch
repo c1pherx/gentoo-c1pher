@@ -1,0 +1,18 @@
+--- setup.py	2017-03-23 17:38:56.000000000 -0400
++++ setup.py.fix	2017-08-15 14:05:41.884195001 -0400
+@@ -101,7 +101,7 @@
+ 
+     # You can just specify the packages manually here if your project is
+     # simple. Or you can use find_packages().
+-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
++    packages=find_packages(exclude=['contrib', 'docs', 'test']),
+ 
+     # Alternatively, if you want to distribute just a my_module.py, uncomment
+     # this:
+@@ -145,5 +145,5 @@
+     # To provide executable scripts, use entry points in preference to the
+     # "scripts" keyword. Entry points provide cross-platform support and allow
+     # pip to create the appropriate form of executable for the target platform.
+-    entry_points={'console_scripts': ['b2=b2.console_tool:main',],},
++    entry_points={'console_scripts': ['backblaze=b2.console_tool:main',],},
+ )
