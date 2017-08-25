@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>c1pher@c1pher.net</email>
+		<name>Dane Smith</name>
+	</maintainer>
+	<longdescription lang="en">
+		Content-Addressable Multi-Layer Indexed Store.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">camlistore/camlistore</remote-id>
+	</upstream>
+</pkgmetadata>
