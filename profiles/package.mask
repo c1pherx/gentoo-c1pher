@@ -1,1 +1,2 @@
 =sys-kernel/genkernel-next-9999
+=net-fs/camlistore-9999
