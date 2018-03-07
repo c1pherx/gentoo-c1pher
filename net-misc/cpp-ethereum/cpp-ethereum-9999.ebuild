@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}
 	net-misc/curl
 	sys-libs/readline"
 
-PATCHES="${FILESDIR}/EthCompilerSettings.cmake.patch"
+#PATCHES="${FILESDIR}/EthCompilerSettings.cmake.patch"
 
 src_configure() {
 	local mycmakeargs=(
