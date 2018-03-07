@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils git-r3
+inherit cmake-utils multilib git-r3
 
 DESCRIPTION="Ethereum miner with CUDA and stratum support"
 HOMEPAGE="https://github.com/Genoil/cpp-ethereum"
@@ -35,6 +35,13 @@ src_configure() {
 		-DBUNDLE="$(usex cuda cudaminer miner)"
 		-DETHASHCL="$(usex opencl ON OFF)"
 	)
+
+	sed -i -e 's/DESTINATION lib/DESTINATION '$(get_libdir)'/g' libdevcore/CMakeLists.txt || die
+	sed -i -e 's/DESTINATION lib/DESTINATION '$(get_libdir)'/g' libethash-cl/CMakeLists.txt || die
+	sed -i -e 's/DESTINATION lib/DESTINATION '$(get_libdir)'/g' libethash/CMakeLists.txt || die
+	sed -i -e 's/DESTINATION lib/DESTINATION '$(get_libdir)'/g' libethash-cuda/CMakeLists.txt || die
+	sed -i -e 's/DESTINATION lib/DESTINATION '$(get_libdir)'/g' libethcore/CMakeLists.txt || die
+	sed -i -e 's/DESTINATION lib/DESTINATION '$(get_libdir)'/g' libstratum/CMakeLists.txt || die
 
 	cmake-utils_src_configure
 }
