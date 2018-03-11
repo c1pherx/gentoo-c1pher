@@ -1,0 +1,20 @@
+--- b2/setup.py	2017-11-30 20:52:10.000000000 -0500
++++ b2/setup.py	2018-03-10 20:45:42.636984605 -0500
+@@ -101,7 +101,7 @@
+ 
+     # You can just specify the packages manually here if your project is
+     # simple. Or you can use find_packages().
+-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
++    packages=find_packages(exclude=['contrib', 'docs', 'test']),
+ 
+     # Alternatively, if you want to distribute just a my_module.py, uncomment
+     # this:
+@@ -147,7 +147,7 @@
+     # pip to create the appropriate form of executable for the target platform.
+     entry_points={
+         'console_scripts': [
+-            'b2=b2.console_tool:main',
++            'backblaze=b2.console_tool:main',
+         ],
+     },
+ )
