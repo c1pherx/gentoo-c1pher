@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>c1pher@c1pher.net</email>
+</maintainer>
+<use>
+	<flag name="pm-utils"></flag>
+	<flag name="systemd"></flag>
+	<flag name="udev"></flag>
+</use>
+</pkgmetadata>
