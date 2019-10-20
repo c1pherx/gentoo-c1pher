@@ -6,8 +6,8 @@ EAPI=6
 inherit cmake-utils multilib git-r3
 
 DESCRIPTION="Ethereum miner with CUDA and stratum support"
-HOMEPAGE="https://github.com/Genoil/cpp-ethereum"
-EGIT_REPO_URI="https://github.com/Genoil/cpp-ethereum.git"
+HOMEPAGE="https://github.com/ethereum-mining/ethminer"
+EGIT_REPO_URI="https://github.com/ethereum-mining/ethminer"
 
 LICENSE="GPL-3"
 SLOT="0"
