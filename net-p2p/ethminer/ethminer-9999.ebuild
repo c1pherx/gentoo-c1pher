@@ -10,7 +10,7 @@ inherit eutils cmake-utils git-r3
 DESCRIPTION="Ethereum miner with CUDA and stratum support"
 HOMEPAGE="https://github.com/ethereum-mining/ethminer"
 EGIT_REPO_URI="https://github.com/ethereum-mining/${PN}.git"
-EGIT_SUBMODULES=( cmake/cable cmake/Hunter/disabled-mode)
+EGIT_SUBMODULES=( '*' )
 
 if [[ ${PV} == 9999 ]]; then
 	KEYWORDS=""
