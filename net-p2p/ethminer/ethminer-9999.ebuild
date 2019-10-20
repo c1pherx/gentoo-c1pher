@@ -55,7 +55,6 @@ src_prepare() {
 	sed -r -i \
 		-e '/hunter_add_package/d' \
 		-e 's/(find_package.+)CONFIG/\1/' \
-		ethminer/CMakeLists.txt \
 		libethash-cl/CMakeLists.txt \
 		libpoolprotocols/CMakeLists.txt \
 		CMakeLists.txt || die
