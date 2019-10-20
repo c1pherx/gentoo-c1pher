@@ -104,6 +104,10 @@ src_prepare() {
 		-e 's/get_io_service/context/' \
 		libethcore/Farm.cpp || die
 
+	sed -i -e \
+		's/dbusint.send(Farm::f().Telemetry().str());/dbusint.send(Farm::f().Telemetry().c_str());/' \
+		ethminer/main.cpp
+
 	sed -r -i \
 		-e 's/\*(m_uri\..+\(\))/\1\.data\(\)/' \
 		-e 's/\!(m_uri\..+\(\))/\1\.empty\(\)/' \
