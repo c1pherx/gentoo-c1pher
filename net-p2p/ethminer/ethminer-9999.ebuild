@@ -105,7 +105,7 @@ src_prepare() {
 		libethcore/Farm.cpp || die
 
 	sed -i -e \
-		's/dbusint.send(Farm::f().Telemetry().str());/dbusint.send(Farm::f().Telemetry().c_str());/' \
+		's/dbusint.send(Farm::f().Telemetry().str());/dbusint.send(Farm::f().Telemetry().str().c_str());/' \
 		ethminer/main.cpp
 
 	sed -r -i \
