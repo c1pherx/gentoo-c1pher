@@ -100,6 +100,10 @@ src_prepare() {
 		-e '/include_directories/a include_directories\(\/usr\/include\/jsoncpp\)' \
 		libethcore/CMakeLists.txt || die
 
+	sed -i \
+		-e 's/get_io_context/context/' \
+		libethcore/Farm.cpp || die
+
 	sed -r -i \
 		-e 's/\*(m_uri\..+\(\))/\1\.data\(\)/' \
 		-e 's/\!(m_uri\..+\(\))/\1\.empty\(\)/' \
