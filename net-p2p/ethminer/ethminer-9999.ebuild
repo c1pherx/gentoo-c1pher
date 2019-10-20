@@ -28,6 +28,7 @@ IUSE="apicore cuda dbus debug +opencl"
 RDEPEND="
 	dev-cpp/ethash
 	>=dev-cpp/libjson-rpc-cpp-1.0.0[http-client]
+	dev-cpp/cli11
 	dev-cpp/uri
 	dev-libs/boost
 	dev-libs/jsoncpp
@@ -55,6 +56,7 @@ src_prepare() {
 	sed -r -i \
 		-e '/hunter_add_package/d' \
 		-e 's/(find_package.+)CONFIG/\1/' \
+		ethminer/CMakeLists.txt \
 		libethash-cl/CMakeLists.txt \
 		libpoolprotocols/CMakeLists.txt \
 		CMakeLists.txt || die
