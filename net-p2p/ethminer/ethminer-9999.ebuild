@@ -93,6 +93,10 @@ src_prepare() {
 		libpoolprotocols/CMakeLists.txt || die
 
 	sed -r -i \
+		-e '/include_directories\(\.\.\)/a include_directories(\/usr\/include\/jsoncpp/' \
+		libethash-cl/CMakeLists.txt || die
+
+	sed -r -i \
 		-e 's/\*(m_uri\..+\(\))/\1\.data\(\)/' \
 		-e 's/\!(m_uri\..+\(\))/\1\.empty\(\)/' \
 		libpoolprotocols/PoolURI.cpp || die
