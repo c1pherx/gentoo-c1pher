@@ -101,7 +101,7 @@ src_prepare() {
 		libethcore/CMakeLists.txt || die
 
 	sed -i \
-		-e 's/get_io_context/context/' \
+		-e 's/get_io_service/context/' \
 		libethcore/Farm.cpp || die
 
 	sed -r -i \
