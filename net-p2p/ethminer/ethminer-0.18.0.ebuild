@@ -10,7 +10,7 @@ inherit eutils cmake-utils git-r3
 DESCRIPTION="Ethereum miner with CUDA and stratum support"
 HOMEPAGE="https://github.com/ethereum-mining/ethminer"
 EGIT_REPO_URI="https://github.com/ethereum-mining/${PN}.git"
-EGIT_SUBMODULES=( cmake/cable )
+EGIT_SUBMODULES=( '*' )
 
 if [[ ${PV} == 9999 ]]; then
 	KEYWORDS=""
@@ -28,6 +28,7 @@ IUSE="apicore cuda dbus debug +opencl"
 RDEPEND="
 	dev-cpp/ethash
 	>=dev-cpp/libjson-rpc-cpp-1.0.0[http-client]
+	dev-cpp/cli11
 	dev-cpp/uri
 	dev-libs/boost
 	dev-libs/jsoncpp
@@ -55,6 +56,7 @@ src_prepare() {
 	sed -r -i \
 		-e '/hunter_add_package/d' \
 		-e 's/(find_package.+)CONFIG/\1/' \
+		ethminer/CMakeLists.txt \
 		libethash-cl/CMakeLists.txt \
 		libpoolprotocols/CMakeLists.txt \
 		CMakeLists.txt || die
@@ -89,6 +91,22 @@ src_prepare() {
 		-e 's/libjson-rpc-cpp::client/jsonrpccpp-client jsonrpccpp-common/' \
 		-e 's/target_include_directories.+poolprotocols/\0 PUBLIC \/usr\/include\/jsoncpp/' \
 		libpoolprotocols/CMakeLists.txt || die
+
+	sed -r -i \
+		-e '/include_directories\(\.\.\)/a include_directories\(\/usr\/include\/jsoncpp\)' \
+		libethash-cl/CMakeLists.txt || die
+
+	sed -r -i \
+		-e '/include_directories/a include_directories\(\/usr\/include\/jsoncpp\)' \
+		libethcore/CMakeLists.txt || die
+
+	sed -i \
+		-e 's/get_io_service/context/' \
+		libethcore/Farm.cpp || die
+
+	sed -i -e \
+		's/dbusint.send(Farm::f().Telemetry().str());/dbusint.send(Farm::f().Telemetry().str().c_str());/' \
+		ethminer/main.cpp
 
 	sed -r -i \
 		-e 's/\*(m_uri\..+\(\))/\1\.data\(\)/' \
