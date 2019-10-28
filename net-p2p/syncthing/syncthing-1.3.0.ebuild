@@ -110,7 +110,7 @@ src_prepare() {
 src_compile() {
 	export GOPATH="${S}:$(get_golibdir_gopath)"
 	cd src/${EGO_PN} || die
-	go run build.go -version "v${PV}" -no-upgrade install \
+	GOFLAGS="-mod=vendor" go run build.go -version "v${PV}" -no-upgrade install \
 		$(usex tools "all" "") || die "build failed"
 }
 
